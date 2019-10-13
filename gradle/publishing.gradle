@@ -1,0 +1,33 @@
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+def repoUrl = project.findProperty('mavenUrl')
+        ?: System.getenv('MAVEN_URL')
+        ?: 'Not Specified'
+
+def repoUser = project.findProperty('mavenUsername')
+        ?: System.getenv('MAVEN_USERNAME')
+        ?: 'Not Specified'
+
+def repoPass = project.findProperty('mavenPassword')
+        ?: System.getenv('MAVEN_PASSWORD')
+        ?: 'Not Specified'
+
+println("Maven URL: ${repoUrl}, Maven Username: ${repoUser}")
+
+publishing {
+    repositories {
+        maven {
+            url "${repoUrl}"
+            credentials {
+                username "${repoUser}"
+                password "${repoPass}"
+            }
+        }
+    }
+}
+
+task sourceJar(type: Jar) {
+    classifier 'sources'
+    from sourceSets.main.allJava
+}
