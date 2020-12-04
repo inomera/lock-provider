@@ -1,8 +1,12 @@
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
-def repoUrl = project.findProperty('mavenUrl')
-        ?: System.getenv('MAVEN_URL')
+def releaseRepoUrl = project.findProperty('mavenReleaseUrl')
+        ?: System.getenv('MAVEN_RELEASE_URL')
+        ?: 'Not Specified'
+
+def snapshotRepoUrl = project.findProperty('mavenSnapshotUrl')
+        ?: System.getenv('MAVEN_SNAPSHOT_URL')
         ?: 'Not Specified'
 
 def repoUser = project.findProperty('mavenUsername')
@@ -12,6 +16,9 @@ def repoUser = project.findProperty('mavenUsername')
 def repoPass = project.findProperty('mavenPassword')
         ?: System.getenv('MAVEN_PASSWORD')
         ?: 'Not Specified'
+
+def isSnapshot = Boolean.parseBoolean(System.getenv("SNAPSHOT_RELEASE"))
+def repoUrl = isSnapshot ? snapshotRepoUrl : releaseRepoUrl
 
 println("Maven URL: ${repoUrl}, Maven Username: ${repoUser}")
 

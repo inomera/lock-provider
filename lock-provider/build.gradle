@@ -1,12 +1,14 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 apply from: "${rootProject.rootDir}/gradle/tests.gradle"
 apply from: "${rootProject.rootDir}/gradle/publishing.gradle"
 
+def isSnapshot = Boolean.parseBoolean(System.getenv("SNAPSHOT_RELEASE"))
+
 group = 'com.inomera.telco.commons'
-version = rootProject.file('VERSION').text.trim()
+version = rootProject.file('VERSION').text.trim() + (isSnapshot ? "-SNAPSHOT" : "")
 sourceCompatibility = '1.8'
 targetCompatibility = 1.8
 
@@ -43,6 +45,37 @@ publishing {
 
             from components.java
             artifact tasks.sourceJar
+
+            pom {
+                name = 'lock-provider'
+                description = 'Distributed locks made easy'
+                url = 'https://github.com/inomera/lock-provider'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'http://www.opensource.org/licenses/mit-license.php'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'sedran'
+                        name = 'Serdar Kuzucu'
+                        organization = 'Inomera'
+                        organizationUrl = 'https://inomera.com/'
+                    }
+                    developer {
+                        id = 'TurgayCan'
+                        name = 'Turgay Can'
+                        organization = 'Inomera'
+                        organizationUrl = 'https://inomera.com/'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/inomera/lock-provider.git'
+                    developerConnection = 'scm:git:https://github.com/inomera/lock-provider.git'
+                    url = 'https://github.com/inomera/lock-provider'
+                }
+            }
         }
     }
 }

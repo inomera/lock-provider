@@ -13,7 +13,8 @@ Add credentials for maven repository to `gradle.properties` file.
 Example `gradle.properties` file:
 
 ```
-mavenUrl=********
+mavenReleaseUrl=********
+mavenSnapshotUrl=********
 mavenUsername=************************
 mavenPassword=************************
 ```
@@ -30,6 +31,12 @@ Then you need to invoke `release.sh` script in the project root directory.
 
 ./release.sh major
 # New version is 2.0.0
+```
+
+To publish a snapshot release, use `--snapshot` flag as follows:
+
+```sh
+./release.sh patch --snapshot
 ```
 
 Please change the version wisely.
