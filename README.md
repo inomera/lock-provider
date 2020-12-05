@@ -36,6 +36,6 @@ Please change the version wisely.
 
 ##Redisson client, why we choose?
 
-Redisson is more appropriate for our interface ans also more mature according to the Jedis.
+Redisson is more appropriate for our interface and also more mature according to the Jedis.
 
 redisson github : https://github.com/redisson
