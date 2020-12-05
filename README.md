@@ -33,3 +33,9 @@ Then you need to invoke `release.sh` script in the project root directory.
 ```
 
 Please change the version wisely.
+
+##Redisson client, why we choose?
+
+Redisson is more appropriate for our interface ans also more mature according to the Jedis.
+
+redisson github : https://github.com/redisson

@@ -1,4 +1,4 @@
-rootProject.name = 'telco-commons-lock-provider'
+rootProject.name = 'lock-provider'
 
 include 'lock-provider'
 project(':lock-provider').name = 'lock-provider'
