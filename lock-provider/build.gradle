@@ -26,6 +26,7 @@ compileJava.dependsOn(processResources)
 dependencies {
     compile "commons-lang:commons-lang:2.4"
     compileOnly "com.hazelcast:hazelcast-client:3.12"
+    compileOnly 'org.redisson:redisson:3.14.0'
 
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
     testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
