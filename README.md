@@ -1,3 +1,174 @@
+# Lock Provider
+
+![Build](https://github.com/inomera/lock-provider/workflows/Build/badge.svg)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider)
+
+# Usage
+
+## With Maven
+
+```xml
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider</artifactId>
+  <version>1.2.0</version>
+</dependency>
+```
+
+## With Gradle
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider:1.2.0'
+```
+
+## Create an Instance
+
+### With Hazelcast
+
+```java
+final LockProvider lockProvider = new HazelcastLockProvider(hazelcastInstance);
+```
+
+### With Redis
+
+```java
+final LockProvider lockProvider = new RedisLockProvider(redissonClient);
+```
+
+### Non-distributed Lock Provider
+
+```java
+final LockProvider lockProvider = new LocalReentrantLockProvider();
+```
+
+## Optimistic Lock
+
+### Default Lock Map - Manual Unlock
+
+Returns empty optional if lock is not acquired.
+
+```java
+final Optional<Locked> maybeLocked = lockProvider.tryLock("lockKey");
+maybeLocked.ifPresent(locked -> {
+  try {
+    // Do things in lock
+  } finally {
+    locked.unlock();
+  }
+});
+```
+
+### Custom Lock Map - Manual Unlock
+
+Returns empty optional if lock is not acquired.
+
+```java
+final Optional<Locked> maybeLocked = lockProvider.tryLock("lockMapName", "lockKey");
+maybeLocked.ifPresent(locked -> {
+  try {
+    // Do things in lock
+  } finally {
+    locked.unlock();
+  }
+});
+```
+
+### Default Lock Map - Auto Unlock
+
+```java
+lockProvider.executeInTryLock("lockKey", () -> {
+  // Do stuff in lock
+});
+```
+
+### Custom Lock Map - Auto Unlock
+
+```java
+lockProvider.executeInTryLock("lockMapName", "lockKey", () -> {
+  // Do stuff in lock
+});
+```
+
+### Default Lock Map - Auto Unlock - Return Value
+
+Returns null if lock is not acquired.
+
+```java
+final String result = lockProvider.executeInTryLock("lockKey", () -> {
+  // Do stuff in lock
+  return "result";
+});
+```
+
+### Custom Lock Map - Auto Unlock - Return Value
+
+Returns null if lock is not acquired.
+
+```java
+final String result = lockProvider.executeInTryLock("lockMapName", "lockKey", () -> {
+  // Do stuff in lock
+  return "result";
+});
+```
+
+## Pesimistic Lock
+
+### Default Lock Map - Manual Unlock
+
+```java
+final Locked locked = lockProvider.lock("lockKey");
+try {
+  // Do stuff in lock
+} finally {
+  locked.unlock();
+}
+```
+
+### Custom Lock Map - Manual Unlock
+
+```java
+final Locked locked = lockProvider.lock("lockMapName", "lockKey");
+try {
+  // Do stuff in lock
+} finally {
+  locked.unlock();
+}
+```
+
+### Default Lock Map - Auto Unlock
+
+```java
+lockProvider.executeInLock("lockKey", () -> {
+  // Do stuff in lock
+});
+```
+
+### Custom Lock Map - Auto Unlock
+
+```java
+lockProvider.executeInLock("lockMapName", "lockKey", () -> {
+  // Do stuff in lock
+});
+```
+
+### Default Lock Map - Auto Unlock - Return Value
+
+```java
+final String result = lockProvider.executeInLock("lockKey", () -> {
+  // Do stuff in lock
+  return "result";
+});
+```
+
+### Custom Lock Map - Auto Unlock - Return Value
+
+```java
+final String result = lockProvider.executeInLock("lockMapName", "lockKey", () -> {
+  // Do stuff in lock
+  return "result";
+});
+```
+
 ## Publishing
 
 To publish a version to maven repository, 
