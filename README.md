@@ -11,14 +11,14 @@
 <dependency>
   <groupId>com.inomera.telco.commons</groupId>
   <artifactId>lock-provider</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 ```
 
 ## With Gradle
 
 ```groovy
-implementation 'com.inomera.telco.commons:lock-provider:1.2.0'
+implementation 'com.inomera.telco.commons:lock-provider:1.3.0'
 ```
 
 ## Create an Instance
