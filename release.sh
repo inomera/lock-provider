@@ -4,22 +4,22 @@ set -e
 # ensure we're up to date
 git pull
 
+forceNewVersion="false"
+snapshot="false"
+
 # Validate release type parameter
 RELEASE_TYPE=""
-if [[ "${1}" = "major" ]] || [[ "${1}" = "minor" ]] || [[ "${1}" = "patch" ]]; then
+if [[ "${1}" = "major" ]] || [[ "${1}" = "minor" ]] || [[ "${1}" = "patch" ]] || [[ "${1}" = "latest" ]]; then
   RELEASE_TYPE="${1}"
 elif [[ ${1} = "" ]]; then
   RELEASE_TYPE="patch"
 else
   echo "Illegal argument: ${1}"
-  echo "Usage: ./release.sh [patch|minor|major]"
+  echo "Usage: ./release.sh [patch|minor|major|latest]"
   exit 1
 fi
 
-echo "${RELEASE_TYPE}"
-
-forceNewVersion="false"
-snapshot="false"
+echo "Release type: ${RELEASE_TYPE}"
 
 shift
 until [[ "$#" == "0" ]]; do
@@ -49,7 +49,7 @@ fi
 
 newVersion="false"
 if [[ "${alreadyVersioned}" = "" ]] || [[ "${forceNewVersion}" = "true" ]]; then
-  if [[ "${snapshot}" = "false" ]]; then
+  if [[ "${snapshot}" = "false" ]] && [[ "${RELEASE_TYPE}" != "latest" ]]; then
     newVersion="true"
 
     # bump (increment) version
@@ -59,6 +59,8 @@ fi
 
 version=$(cat VERSION)
 echo "Version: ${version}"
+
+export SNAPSHOT_RELEASE="${snapshot}"
 
 # run build & tests
 ./gradlew clean build
@@ -72,7 +74,9 @@ if [[ "${newVersion}" = "true" ]]; then
   git push --tags
 fi
 
-export SNAPSHOT_RELEASE="${snapshot}"
-
 # publish it
-./gradlew :lock-provider:publish
+if [[ "${snapshot}" = "false" ]]; then
+  ./gradlew publish closeAndReleaseRepository
+else
+  ./gradlew publish
+fi
