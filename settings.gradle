@@ -1,4 +1,4 @@
-rootProject.name = 'lock-provider'
+rootProject.name = 'lock-provider-parent'
 
 include 'lock-provider'
 project(':lock-provider').name = 'lock-provider'
