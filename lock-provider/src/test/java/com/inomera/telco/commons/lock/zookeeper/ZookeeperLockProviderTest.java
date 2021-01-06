@@ -24,8 +24,8 @@ class ZookeeperLockProviderTest {
 
     private ZookeeperLockProvider lockProvider;
 
-    TestingServer zkServer;
-    CuratorFramework curatorClient;
+    private TestingServer zkServer;
+    private CuratorFramework curatorClient;
 
     @BeforeEach
     void init() throws Exception {
