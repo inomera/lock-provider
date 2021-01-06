@@ -182,3 +182,7 @@ nexusStaging {
     username = "${mavenUsername}"
     password = "${mavenPassword}"
 }
+
+tasks.withType(GenerateModuleMetadata) {
+    enabled = false
+}
