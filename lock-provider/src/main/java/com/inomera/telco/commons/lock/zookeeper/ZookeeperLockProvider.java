@@ -28,7 +28,7 @@ public class ZookeeperLockProvider extends BaseLockProvider implements LockProvi
      * Creates a new CuratorFramework with given CuratorFramework and
      * "ZookeeperLockProvider_DefaultLockPath" as default lock path.
      *
-     * @param curatorClient Zookeeper to get lock maps
+     * @param curatorClient Zookeeper to get lock path
      */
     public ZookeeperLockProvider(CuratorFramework curatorClient) {
         this.curatorClient = Objects.requireNonNull(curatorClient, "CuratorFramework is required!");

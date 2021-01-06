@@ -11,14 +11,14 @@
 <dependency>
   <groupId>com.inomera.telco.commons</groupId>
   <artifactId>lock-provider</artifactId>
-  <version>1.3.0</version>
+  <version>1.4.0</version>
 </dependency>
 ```
 
 ## With Gradle
 
 ```groovy
-implementation 'com.inomera.telco.commons:lock-provider:1.3.0'
+implementation 'com.inomera.telco.commons:lock-provider:1.4.0'
 ```
 
 ## Create an Instance
@@ -33,6 +33,11 @@ final LockProvider lockProvider = new HazelcastLockProvider(hazelcastInstance);
 
 ```java
 final LockProvider lockProvider = new RedisLockProvider(redissonClient);
+```
+### With Zookeeper
+
+```java
+final LockProvider lockProvider = new ZookeeperLockProvider(curatorClient);
 ```
 
 ### Non-distributed Lock Provider
@@ -222,3 +227,9 @@ Please change the version wisely.
 Redisson is more appropriate for our interface and also more mature according to the Jedis.
 
 redisson github : https://github.com/redisson
+
+## CuratorFramework client, why we choose?
+
+CuratorFramework is more appropriate for our interface and also more mature according to the Zookeper Java client.
+
+curator github : https://github.com/apache/curator
