@@ -204,20 +204,21 @@ Then you need to invoke `release.sh` script in the project root directory.
 
 ```sh
 # When the latest VERSION is 1.1.1
-./release.sh patch
+
+./release.sh --release-type patch --project $projectName
 # New version is 1.1.2
 
-./release.sh minor
+./release.sh --release-type minor --project $projectName
 # New version is 1.2.0
 
-./release.sh major
+./release.sh --release-type major --project $projectName
 # New version is 2.0.0
 ```
 
 To publish a snapshot release, use `--snapshot` flag as follows:
 
 ```sh
-./release.sh latest --snapshot
+./release.sh --release-type latest --project $projectName --snapshot
 ```
 
 Please change the version wisely.

@@ -51,7 +51,7 @@ public class RedisLockProvider extends BaseLockProvider implements LockProvider 
         final RLock fairLock = lockMapInstance.getFairLock(lockKey);
         fairLock.lock();
 
-        return () -> fairLock.unlock();
+        return fairLock::unlock;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class RedisLockProvider extends BaseLockProvider implements LockProvider 
         final RLock lock = lockMapInstance.getLock(lockKey);
 
         if (lock.tryLock()) {
-            return Optional.of(() -> lock.unlock());
+            return Optional.of(lock::unlock);
         }
 
         return Optional.empty();

@@ -1,7 +1,26 @@
 rootProject.name = 'lock-provider-parent'
 
-include 'lock-provider'
-project(':lock-provider').name = 'lock-provider'
+// Core
+include 'lock-provider-api'
+project(':lock-provider-api').name = 'lock-provider-api'
+project(':lock-provider-api').projectDir = new File(rootProject.projectDir, "lock-provider")
 
+// Implementations
+include 'lock-provider-reentrant'
+project(':lock-provider-reentrant').projectDir = new File(rootProject.projectDir, "implementations/reentrant")
+
+include 'lock-provider-hazelcast-3x'
+project(':lock-provider-hazelcast-3x').projectDir = new File(rootProject.projectDir, "implementations/hazelcast-3x")
+
+include 'lock-provider-hazelcast-4x'
+project(':lock-provider-hazelcast-4x').projectDir = new File(rootProject.projectDir, "implementations/hazelcast-4x")
+
+include 'lock-provider-redis'
+project(':lock-provider-redis').projectDir = new File(rootProject.projectDir, "implementations/redis")
+
+include 'lock-provider-zookeeper'
+project(':lock-provider-zookeeper').projectDir = new File(rootProject.projectDir, "implementations/zookeeper")
+
+// Example projects
 include 'example-hazelcast-3x'
 project(':example-hazelcast-3x').projectDir = new File(rootProject.projectDir, "examples/hazelcast-3x")
