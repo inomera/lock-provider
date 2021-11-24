@@ -1,7 +1,19 @@
 # Lock Provider
 
 ![Build](https://github.com/inomera/lock-provider/workflows/Build/badge.svg)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider)
+
+## Subprojects
+
+| Artifact                     | Version     |
+| ---------------------------- | ----------- |
+| lock-provider-api            | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api) |
+| lock-provider-reentrant          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant) |
+| lock-provider-hazelcast-3x   | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x) |
+| lock-provider-hazelcast-4x   | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x) |
+| lock-provider-redis          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis) |
+| lock-provider-zookeeper          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper) |
+
+
 
 # Usage
 
@@ -10,39 +22,128 @@
 ```xml
 <dependency>
   <groupId>com.inomera.telco.commons</groupId>
-  <artifactId>lock-provider</artifactId>
-  <version>1.4.0</version>
+  <artifactId>lock-provider-reentrant</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-hazelcast-3x</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-hazelcast-4x</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-redis</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-zookeeper</artifactId>
+  <version>2.0.0</version>
 </dependency>
 ```
 
 ## With Gradle
 
 ```groovy
-implementation 'com.inomera.telco.commons:lock-provider:1.4.0'
+implementation 'com.inomera.telco.commons:lock-provider-reentrant:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-3x:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-redis:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-zookeeper:2.0.0'
 ```
 
 ## Create an Instance
 
-### With Hazelcast
+### With Hazelcast 3.x.x
+
+#### Dependency
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-3x:2.0.0'
+```
+
+#### Instance
 
 ```java
+import com.inomera.telco.commons.lock.hazelcast.HazelcastLockProvider;
+
 final LockProvider lockProvider = new HazelcastLockProvider(hazelcastInstance);
 ```
 
+
+### With Hazelcast 4.x.x
+
+#### Dependency
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:2.0.0'
+```
+
+#### Instance
+
+```java
+import com.inomera.telco.commons.lock.hazelcast.HazelcastLockProvider;
+
+final LockProvider lockProvider = new HazelcastLockProvider(hazelcastInstance);
+```
+
+
 ### With Redis
 
-```java
-final LockProvider lockProvider = new RedisLockProvider(redissonClient);
+#### Dependency
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-redis:2.0.0'
 ```
-### With Zookeeper
+
+#### Instance
 
 ```java
+import com.inomera.telco.commons.lock.redis.RedisLockProvider;
+
+final LockProvider lockProvider = new RedisLockProvider(redissonClient);
+```
+
+
+### With Zookeeper
+
+#### Dependency
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-zookeeper:2.0.0'
+```
+
+#### Instance
+
+```java
+import com.inomera.telco.commons.lock.zookeeper.ZookeeperLockProvider;
+
 final LockProvider lockProvider = new ZookeeperLockProvider(curatorClient);
 ```
 
+
 ### Non-distributed Lock Provider
 
+#### Dependency
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-reentrant:2.0.0'
+```
+
+#### Instance
+
 ```java
+import com.inomera.telco.commons.lock.reentrant.LocalReentrantLockProvider;
+
 final LockProvider lockProvider = new LocalReentrantLockProvider();
 ```
 
