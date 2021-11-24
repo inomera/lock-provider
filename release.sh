@@ -133,8 +133,10 @@ if [[ "${newVersion}" = "true" ]]; then
 fi
 
 # publish it
+cd "${root_project_dir}"
+
 if [[ "${snapshot}" = "false" ]]; then
-  "${root_project_dir}/gradlew" publish closeAndReleaseRepository
+  "${root_project_dir}/gradlew" :"lock-provider-${project}":publish closeAndReleaseRepository
 else
-  "${root_project_dir}/gradlew" publish
+  "${root_project_dir}/gradlew" :"lock-provider-${project}":publish
 fi
