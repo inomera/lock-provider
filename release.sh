@@ -23,13 +23,14 @@ function validate_project() {
   if [[ "${project}" = "reentrant" ]] \
     || [[ "${project}" = "hazelcast-3x" ]] \
     || [[ "${project}" = "hazelcast-4x" ]] \
+    || [[ "${project}" = "hazelcast-5x" ]] \
     || [[ "${project}" = "redis" ]] \
     || [[ "${project}" = "zookeeper" ]] \
     || [[ "${project}" = "api" ]]; then
       echo "Project is ${project}"
   else
     echo "Illegal release type argument: ${project}"
-    echo "Use one of: [reentrant|hazelcast-3x|hazelcast-4x|redis|zookeeper|api]"
+    echo "Use one of: [reentrant|hazelcast-3x|hazelcast-4x|hazelcast-5x|redis|zookeeper|api]"
     exit 1
   fi
 }
@@ -69,13 +70,15 @@ done
 validate_release_type "${release_type}"
 validate_project "${project}"
 
-# [reentrant|hazelcast-3x|hazelcast-4x|redis|zookeeper|api]
+# [reentrant|hazelcast-3x|hazelcast-4x|hazelcast-5x|redis|zookeeper|api]
 if [[ "${project}" = "reentrant" ]]; then
   project_dir="${PWD}/implementations/reentrant"
 elif [[ "${project}" = "hazelcast-3x" ]]; then
   project_dir="${PWD}/implementations/hazelcast-3x"
 elif [[ "${project}" = "hazelcast-4x" ]]; then
   project_dir="${PWD}/implementations/hazelcast-4x"
+elif [[ "${project}" = "hazelcast-5x" ]]; then
+  project_dir="${PWD}/implementations/hazelcast-5x"
 elif [[ "${project}" = "redis" ]]; then
   project_dir="${PWD}/implementations/redis"
 elif [[ "${project}" = "zookeeper" ]]; then
