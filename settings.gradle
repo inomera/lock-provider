@@ -15,6 +15,9 @@ project(':lock-provider-hazelcast-3x').projectDir = new File(rootProject.project
 include 'lock-provider-hazelcast-4x'
 project(':lock-provider-hazelcast-4x').projectDir = new File(rootProject.projectDir, "implementations/hazelcast-4x")
 
+include 'lock-provider-hazelcast-5x'
+project(':lock-provider-hazelcast-5x').projectDir = new File(rootProject.projectDir, "implementations/hazelcast-5x")
+
 include 'lock-provider-redis'
 project(':lock-provider-redis').projectDir = new File(rootProject.projectDir, "implementations/redis")
 
@@ -24,3 +27,6 @@ project(':lock-provider-zookeeper').projectDir = new File(rootProject.projectDir
 // Example projects
 include 'example-hazelcast-3x'
 project(':example-hazelcast-3x').projectDir = new File(rootProject.projectDir, "examples/hazelcast-3x")
+
+include 'example-hazelcast-5x'
+project(':example-hazelcast-5x').projectDir = new File(rootProject.projectDir, "examples/hazelcast-5x")
