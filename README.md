@@ -42,7 +42,7 @@
 <dependency>
 <groupId>com.inomera.telco.commons</groupId>
 <artifactId>lock-provider-hazelcast-5x</artifactId>
-<version>1.0.0</version>
+<version>2.0.0</version>
 </dependency>
 
 <dependency>
@@ -64,7 +64,7 @@
 implementation 'com.inomera.telco.commons:lock-provider-reentrant:2.0.0'
 implementation 'com.inomera.telco.commons:lock-provider-hazelcast-3x:2.0.0'
 implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:2.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:1.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:2.0.0'
 implementation 'com.inomera.telco.commons:lock-provider-redis:2.0.0'
 implementation 'com.inomera.telco.commons:lock-provider-zookeeper:2.0.0'
 ```
@@ -102,7 +102,7 @@ implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:2.0.0'
 #### Dependency
 
 ```groovy
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:1.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:2.0.0'
 ```
 
 #### Instance
