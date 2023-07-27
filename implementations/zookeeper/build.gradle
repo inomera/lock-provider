@@ -30,8 +30,8 @@ def mavenPackageGroup = project.findProperty('mavenPackageGroup') ?: 'Undefined'
 
 group = 'com.inomera.telco.commons'
 version = project.file('VERSION').text.trim() + (isSnapshot ? "-SNAPSHOT" : "")
-sourceCompatibility = '1.8'
-targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 configurations {
     compileOnly {
@@ -49,7 +49,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
-task sourceJar(type: Jar) {
+tasks.register('sourceJar', Jar) {
     classifier 'sources'
     from sourceSets.main.allJava
 }
