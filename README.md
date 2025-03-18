@@ -7,14 +7,23 @@
 Compatability Matrix
 
 | Version | JDK | Hazelcast | Redisson | Zookeeper |
-|---------|-----|---------|----------|-----------|
-| v3.x.x  | 17  | 4,5+    | 3.14.0   | 5.3.0     |
-| v2.x.x  | 8   | 3,4,5   | 3.14.0   | 5.1.0     |
+|---------|-----|-----------|----------|-----------|
+| v4.x.x  | 23  | 5+        | 3.14.0   | 5.3.0     |
+| v3.x.x  | 17  | 3,4,5+    | 3.14.0   | 5.3.0     |
+| v2.x.x  | 8   | 3,4,5     | 3.14.0   | 5.1.0     |
 
 ## Subprojects
 
 | Artifact                   | Version                                                                                                                                                                                                                                                  |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
+| lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
+| lock-provider-hazelcast-3x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x) |
+| lock-provider-hazelcast-4x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x) |
+| lock-provider-hazelcast-5x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x) |
+| lock-provider-redis        | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis)               |
+| lock-provider-zookeeper    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper)       |
+|----------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------             |
 | lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
 | lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
 | lock-provider-hazelcast-3x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x) |
@@ -36,7 +45,47 @@ Compatability Matrix
 
 ## With Maven
 ---
+JDK 23 Support
 
+```xml
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-reentrant</artifactId>
+  <version>4.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-hazelcast-3x</artifactId>
+  <version>4.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-hazelcast-4x</artifactId>
+  <version>4.0.0</version>
+</dependency>
+
+<dependency>
+<groupId>com.inomera.telco.commons</groupId>
+<artifactId>lock-provider-hazelcast-5x</artifactId>
+<version>4.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-redis</artifactId>
+  <version>4.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-zookeeper</artifactId>
+  <version>4.0.0</version>
+</dependency>
+```
+
+---
 JDK 17 Support
 
 ```xml
@@ -120,6 +169,14 @@ JDK 8 Support
 
 ## With Gradle
 
+JDK 23 Support
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-reentrant:4.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:4.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-redis:4.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-zookeeper:4.0.0'
+```
 
 JDK 17 Support
 
@@ -247,12 +304,12 @@ Returns empty optional if lock is not acquired.
 ```java
 final Optional<Locked> maybeLocked = lockProvider.tryLock("lockKey");
 maybeLocked.ifPresent(locked -> {
-  try {
-    // Do things in lock
-  } finally {
-    locked.unlock();
+        try {
+        // Do things in lock
+        } finally {
+        locked.unlock();
   }
-});
+          });
 ```
 
 ### Custom Lock Map - Manual Unlock
@@ -262,28 +319,28 @@ Returns empty optional if lock is not acquired.
 ```java
 final Optional<Locked> maybeLocked = lockProvider.tryLock("lockMapName", "lockKey");
 maybeLocked.ifPresent(locked -> {
-  try {
-    // Do things in lock
-  } finally {
-    locked.unlock();
+        try {
+        // Do things in lock
+        } finally {
+        locked.unlock();
   }
-});
+          });
 ```
 
 ### Default Lock Map - Auto Unlock
 
 ```java
 lockProvider.executeInTryLock("lockKey", () -> {
-  // Do stuff in lock
-});
+        // Do stuff in lock
+        });
 ```
 
 ### Custom Lock Map - Auto Unlock
 
 ```java
 lockProvider.executeInTryLock("lockMapName", "lockKey", () -> {
-  // Do stuff in lock
-});
+        // Do stuff in lock
+        });
 ```
 
 ### Default Lock Map - Auto Unlock - Return Value
@@ -292,8 +349,8 @@ Returns null if lock is not acquired.
 
 ```java
 final String result = lockProvider.executeInTryLock("lockKey", () -> {
-  // Do stuff in lock
-  return "result";
+    // Do stuff in lock
+    return "result";
 });
 ```
 
@@ -303,8 +360,8 @@ Returns null if lock is not acquired.
 
 ```java
 final String result = lockProvider.executeInTryLock("lockMapName", "lockKey", () -> {
-  // Do stuff in lock
-  return "result";
+    // Do stuff in lock
+    return "result";
 });
 ```
 
@@ -315,9 +372,9 @@ final String result = lockProvider.executeInTryLock("lockMapName", "lockKey", ()
 ```java
 final Locked locked = lockProvider.lock("lockKey");
 try {
-  // Do stuff in lock
-} finally {
-  locked.unlock();
+        // Do stuff in lock
+        } finally {
+        locked.unlock();
 }
 ```
 
@@ -326,9 +383,9 @@ try {
 ```java
 final Locked locked = lockProvider.lock("lockMapName", "lockKey");
 try {
-  // Do stuff in lock
-} finally {
-  locked.unlock();
+        // Do stuff in lock
+        } finally {
+        locked.unlock();
 }
 ```
 
@@ -336,24 +393,24 @@ try {
 
 ```java
 lockProvider.executeInLock("lockKey", () -> {
-  // Do stuff in lock
-});
+        // Do stuff in lock
+        });
 ```
 
 ### Custom Lock Map - Auto Unlock
 
 ```java
 lockProvider.executeInLock("lockMapName", "lockKey", () -> {
-  // Do stuff in lock
-});
+        // Do stuff in lock
+        });
 ```
 
 ### Default Lock Map - Auto Unlock - Return Value
 
 ```java
 final String result = lockProvider.executeInLock("lockKey", () -> {
-  // Do stuff in lock
-  return "result";
+    // Do stuff in lock
+    return "result";
 });
 ```
 
@@ -361,19 +418,19 @@ final String result = lockProvider.executeInLock("lockKey", () -> {
 
 ```java
 final String result = lockProvider.executeInLock("lockMapName", "lockKey", () -> {
-  // Do stuff in lock
-  return "result";
+    // Do stuff in lock
+    return "result";
 });
 ```
 
 ## Publishing
 
-To publish a version to maven repository, 
+To publish a version to maven repository,
 you should create a gradle.properties file in the root directory of this project.
 
 The file is: `/path-to-project/gradle.properties`
 
-This file is included in .gitignore file. 
+This file is included in .gitignore file.
 You should not commit it since it contains sensitive information.
 
 Add credentials for maven repository to `gradle.properties` file.
