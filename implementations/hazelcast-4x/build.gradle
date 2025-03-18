@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
     api project(':lock-provider-api')
-    compileOnly 'com.hazelcast:hazelcast:4.2.2'
+    compileOnly 'com.hazelcast:hazelcast:4.2.8'
 
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
     testImplementation('org.junit.jupiter:junit-jupiter-params:5.2.0')
@@ -14,20 +14,20 @@ dependencies {
     testImplementation "org.mockito:mockito-core:2.23.4"
     testImplementation('org.mockito:mockito-junit-jupiter:2.18.3')
     testImplementation('org.hamcrest:hamcrest-all:1.3')
-    testImplementation('com.google.guava:guava:27.0.1-jre')
+    testImplementation('com.google.guava:guava:33.3.1-jre')
 }
 
 apply from: "${rootProject.rootDir}/gradle/tests.gradle"
 
 def isSnapshot = Boolean.parseBoolean(System.getenv("SNAPSHOT_RELEASE"))
-def mavenSnapshotUrl = project.findProperty('mavenSnapshotUrl') ?: 'Undefined'
-def mavenReleaseUrl = project.findProperty('mavenReleaseUrl') ?: 'Undefined'
+def mavenSnapshotUrl = project.findProperty('mavenSnapshotUrl') ?: 'https://oss.sonatype.org/content/repositories/snapshots/'
+def mavenReleaseUrl = project.findProperty('mavenReleaseUrl') ?: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
 def mavenUsername = project.findProperty('mavenUsername') ?: 'Undefined'
 def mavenPassword = project.findProperty('mavenPassword') ?: 'Undefined'
-def mavenPackageGroup = project.findProperty('mavenPackageGroup') ?: 'Undefined'
+def mavenPackageGroup = project.findProperty('mavenPackageGroup') ?: 'com.inomera'
 
 group = 'com.inomera.telco.commons'
-version = project.file('VERSION').text.trim() + (isSnapshot ? "-SNAPSHOT" : "")
+version = project.file('VERSION').text.trim()
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
@@ -42,7 +42,8 @@ configurations {
 
 compileJava.dependsOn(processResources)
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
+tasks.register('javadocJar', Jar) {
+    dependsOn javadoc
     classifier "javadoc"
     from javadoc.destinationDir
 }
@@ -59,9 +60,9 @@ artifacts {
 
 // Signing
 signing {
+    useInMemoryPgpKeys(file('/Users/turgaycan/Documents/maven-central.asc').text, "inomera")
     sign configurations.archives
 }
-
 signArchives.onlyIf { gradle.taskGraph.hasTask(publish) && !isSnapshot }
 
 publishing {
@@ -74,7 +75,7 @@ publishing {
 
             pom {
                 name = 'lock-provider'
-                description = 'Distributed locks made easy'
+                description = 'Hazelcast Distributed locks made easy'
                 url = 'https://github.com/inomera/lock-provider'
 
                 organization {
@@ -92,13 +93,19 @@ publishing {
                         id = 'sedran'
                         name = 'Serdar Kuzucu'
                         organization = 'Inomera'
-                        organizationUrl = 'https://inomera.com/'
+                        organizationUrl = 'https://github.com/sedran'
                     }
                     developer {
-                        id = 'TurgayCan'
+                        id = 'turgaycan'
                         name = 'Turgay Can'
                         organization = 'Inomera'
-                        organizationUrl = 'https://inomera.com/'
+                        organizationUrl = 'https://github.com/turgaycan'
+                    }
+                    developer {
+                        id = 'ebruuzorluu'
+                        name = 'Ebru Zorlu'
+                        organization = 'Inomera'
+                        organizationUrl = 'https://github.com/ebruuzorluu'
                     }
                 }
                 scm {
@@ -121,9 +128,11 @@ publishing {
                     dep.scope == "test"
                 }
 
-                def pomFile = file("${project.buildDir}/generated-pom.xml")
+                def pomFile = file("${project.buildDir}/${project.name}-${project.version}.pom")
                 writeTo(pomFile)
+                println("pomFile -> $pomFile")
                 def pomAscFile = signing.sign(pomFile).signatureFiles[0]
+                println("pomAscFile -> $pomAscFile")
                 artifact(pomAscFile) {
                     classifier = null
                     extension = 'pom.asc'
@@ -138,11 +147,19 @@ publishing {
             }
 
             // create the signed artifacts
-            project.tasks.signArchives.signatureFiles.each {
+
+            def archives = project.tasks.signArchives
+            println("archives -> $archives")
+
+            def files = archives.signatureFiles
+            println("signatureFiles -> $files")
+            files.each {
                 artifact(it) {
                     def matcher = it.file =~ /-(sources|javadoc)\.jar\.asc$/
+                    println("it.file -> $it.file")
                     if (matcher.find()) {
                         classifier = matcher.group(1)
+                        println("classifier -> $classifier")
                     } else {
                         classifier = null
                     }
@@ -151,12 +168,16 @@ publishing {
             }
         }
     }
+
     repositories {
         maven {
-            url isSnapshot ? "${mavenSnapshotUrl}" : "${mavenReleaseUrl}"
+            url = isSnapshot ? "${mavenSnapshotUrl}" : "${mavenReleaseUrl}"
+            println("Publishing to ${url}")
             credentials {
                 username "${mavenUsername}"
+                println("username -> ${mavenUsername}")
                 password "${mavenPassword}"
+                println("password -> ${mavenPassword}")
             }
         }
     }
@@ -164,7 +185,7 @@ publishing {
 
 model {
     tasks.generatePomFileForMavenJavaPublication {
-        destination = file("$buildDir/generated-pom.xml")
+        destination = file("$projectDir/${project.name}-${project.version}.pom")
     }
     tasks.publishMavenJavaPublicationToMavenLocal {
         dependsOn project.tasks.signArchives
@@ -174,12 +195,10 @@ model {
     }
 }
 
-nexusStaging {
-    packageGroup = "${mavenPackageGroup}"
-    username = "${mavenUsername}"
-    password = "${mavenPassword}"
+tasks.withType(GenerateModuleMetadata).configureEach {
+    enabled = false
 }
 
-tasks.withType(GenerateModuleMetadata) {
-    enabled = false
+tasks.generatePomFileForMavenJavaPublication {
+    destination = file("${project.projectDir}/build/publications/mavenJava/${project.name}-${project.version}.pom")
 }
