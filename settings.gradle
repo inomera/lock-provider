@@ -9,9 +9,6 @@ project(':lock-provider-api').projectDir = new File(rootProject.projectDir, "loc
 include 'lock-provider-reentrant'
 project(':lock-provider-reentrant').projectDir = new File(rootProject.projectDir, "implementations/reentrant")
 
-include 'lock-provider-hazelcast-4x'
-project(':lock-provider-hazelcast-4x').projectDir = new File(rootProject.projectDir, "implementations/hazelcast-4x")
-
 include 'lock-provider-hazelcast-5x'
 project(':lock-provider-hazelcast-5x').projectDir = new File(rootProject.projectDir, "implementations/hazelcast-5x")
 

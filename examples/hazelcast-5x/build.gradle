@@ -6,8 +6,8 @@ plugins {
 
 group = 'com.inomera.telco.commons.lock'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_23
+targetCompatibility = JavaVersion.VERSION_23
 
 configurations {
     compileOnly {
@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.hazelcast:hazelcast:5.0'
+    implementation 'com.hazelcast:hazelcast:5.3.8'
     implementation project(':lock-provider-hazelcast-5x')
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
