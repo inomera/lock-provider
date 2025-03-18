@@ -52,18 +52,6 @@ JDK 23 Support
 </dependency>
 
 <dependency>
-  <groupId>com.inomera.telco.commons</groupId>
-  <artifactId>lock-provider-hazelcast-3x</artifactId>
-  <version>4.0.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.inomera.telco.commons</groupId>
-  <artifactId>lock-provider-hazelcast-4x</artifactId>
-  <version>4.0.0</version>
-</dependency>
-
-<dependency>
 <groupId>com.inomera.telco.commons</groupId>
 <artifactId>lock-provider-hazelcast-5x</artifactId>
 <version>4.0.0</version>
@@ -179,7 +167,6 @@ JDK 17 Support
 
 ```groovy
 implementation 'com.inomera.telco.commons:lock-provider-reentrant:3.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-3x:3.0.0'
 implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:3.0.0'
 implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:3.0.0'
 implementation 'com.inomera.telco.commons:lock-provider-redis:3.0.0'
