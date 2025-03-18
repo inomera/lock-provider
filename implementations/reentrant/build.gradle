@@ -59,7 +59,6 @@ artifacts {
 
 // Signing
 signing {
-    useInMemoryPgpKeys(file('/Users/turgaycan/Documents/maven-central.asc').text, "inomera")
     sign configurations.archives
 }
 signArchives.onlyIf { gradle.taskGraph.hasTask(publish) && !isSnapshot }
