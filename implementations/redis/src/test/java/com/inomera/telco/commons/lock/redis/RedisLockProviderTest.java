@@ -51,7 +51,7 @@ class RedisLockProviderTest {
     @Test
     @DisplayName("Constructor without default map name argument should initialize a default map name")
     void constructorWithoutDefaultMapName_shouldInitializeADefaultMapName() {
-        when(redissonClient.<String, Object>getMap(any())).thenReturn(mockMap);
+        when(redissonClient.<String, Object>getMap(anyString())).thenReturn(mockMap);
 
         final RedisLockProvider redisLockProvider = new RedisLockProvider(redissonClient);
         final Locked locked = redisLockProvider.lock("aLock");

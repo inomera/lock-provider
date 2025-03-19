@@ -2,23 +2,76 @@
 
 ![Build](https://github.com/inomera/lock-provider/workflows/Build/badge.svg)
 
+# Version Compatability
+
+Compatability Matrix
+
+| Version | JDK | Hazelcast | Redisson | Zookeeper |
+|---------|-----|---------|----------|-----------|
+| v3.x.x  | 17  | 4,5+    | 3.14.0   | 5.3.0     |
+| v2.x.x  | 8   | 3,4,5   | 3.14.0   | 5.1.0     |
+
 ## Subprojects
 
-| Artifact                   | Version                                                                                                                                                                                                                                    |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
-| lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
-| lock-provider-hazelcast-3x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x) |
-| lock-provider-hazelcast-4x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x) |
-| lock-provider-hazelcast-5x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x) |
-| lock-provider-redis        | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis)               |
-| lock-provider-zookeeper    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper)       |
-
+| Artifact                   | Version                                                                                                                                                                                                                                                  |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
+| lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
+| lock-provider-hazelcast-4x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x) |
+| lock-provider-hazelcast-5x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x) |
+| lock-provider-redis        | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis)               |
+| lock-provider-zookeeper    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper)       |
+|----------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------             |
+| lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
+| lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
+| lock-provider-hazelcast-3x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x) |
+| lock-provider-hazelcast-4x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x) |
+| lock-provider-hazelcast-5x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x) |
+| lock-provider-redis        | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis)               |
+| lock-provider-zookeeper    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper)       |
 
 
 # Usage
 
 ## With Maven
+---
+
+JDK 17 Support
+
+```xml
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-reentrant</artifactId>
+  <version>3.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-hazelcast-4x</artifactId>
+  <version>3.0.0</version>
+</dependency>
+
+<dependency>
+<groupId>com.inomera.telco.commons</groupId>
+<artifactId>lock-provider-hazelcast-5x</artifactId>
+<version>3.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-redis</artifactId>
+  <version>3.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.inomera.telco.commons</groupId>
+  <artifactId>lock-provider-zookeeper</artifactId>
+  <version>3.0.0</version>
+</dependency>
+```
+---
+
+JDK 8 Support
 
 ```xml
 <dependency>
@@ -59,6 +112,19 @@
 ```
 
 ## With Gradle
+
+
+JDK 17 Support
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-reentrant:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-redis:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-zookeeper:3.0.0'
+```
+
+JDK 8 Support
 
 ```groovy
 implementation 'com.inomera.telco.commons:lock-provider-reentrant:2.0.0'
