@@ -82,12 +82,6 @@ JDK 17 Support
 
 <dependency>
   <groupId>com.inomera.telco.commons</groupId>
-  <artifactId>lock-provider-hazelcast-3x</artifactId>
-  <version>3.0.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.inomera.telco.commons</groupId>
   <artifactId>lock-provider-hazelcast-4x</artifactId>
   <version>3.0.0</version>
 </dependency>
