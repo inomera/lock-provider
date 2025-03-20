@@ -30,8 +30,8 @@ def mavenPackageGroup = project.findProperty('mavenPackageGroup') ?: 'Undefined'
 
 group = 'com.inomera.telco.commons'
 version = project.file('VERSION').text.trim() + (isSnapshot ? "-SNAPSHOT" : "")
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_23
+targetCompatibility = JavaVersion.VERSION_23
 
 configurations {
     compileOnly {
@@ -45,13 +45,15 @@ configurations {
 compileJava.dependsOn(processResources)
 
 tasks.register('javadocJar', Jar) {
+    duplicatesStrategy = 'include'
     dependsOn javadoc
-    classifier "javadoc"
+    archiveClassifier.set("javadoc")
     from javadoc.destinationDir
 }
 
 tasks.register('sourceJar', Jar) {
-    classifier 'sources'
+    duplicatesStrategy = 'include'
+    archiveClassifier.set("sources")
     from sourceSets.main.allJava
 }
 
