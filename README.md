@@ -14,37 +14,70 @@ Compatability Matrix
 
 ## Subprojects
 
-| Artifact                   | Version                                                                                                                                                                                                                                                  |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
-| lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
-| lock-provider-hazelcast-5x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x) |
-| lock-provider-redis        | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis)               |
-| lock-provider-zookeeper    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg?version=4.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper)       |
-| -                          | -                                                                                                                                                                                                                                                        |
-| lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
-| lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
-| lock-provider-hazelcast-4x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x) |
-| lock-provider-hazelcast-5x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x) |
-| lock-provider-redis        | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis)               |
-| lock-provider-zookeeper    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg?version=3.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper)       |
-| -                          | -                                                                                                                                                                                                                                                        |
-| lock-provider-api          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-api)                   |
-| lock-provider-reentrant    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-reentrant)       |
-| lock-provider-hazelcast-3x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-3x) |
-| lock-provider-hazelcast-4x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-4x) |
-| lock-provider-hazelcast-5x | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-hazelcast-5x) |
-| lock-provider-redis        | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-redis)               |
-| lock-provider-zookeeper    | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper/badge.svg?version=2.0.0)](https://maven-badges.herokuapp.com/maven-central/com.inomera.telco.commons/lock-provider-zookeeper)       |
-
+| Artifact                    | Version                                                                                                                                                                                                                  |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| lock-provider-api          | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-api.svg?versionPrefix=4)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-api/4.0.0) |
+| lock-provider-reentrant    | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-reentrant.svg?versionPrefix=4)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-reentrant/4.0.0) |
+| lock-provider-hazelcast-5x | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-hazelcast-5x.svg?versionPrefix=4)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-hazelcast-5x/4.0.0) |
+| lock-provider-redis        | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-redis.svg?versionPrefix=4)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-redis/4.0.0) |
+| lock-provider-zookeeper    | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-zookeeper.svg?versionPrefix=4)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-zookeeper/4.0.0) |
+| -                          | -                                                                                                                                                                                                                        |
+| lock-provider-api          | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-api.svg?versionPrefix=3)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-api/3.0.0) |
+| lock-provider-reentrant    | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-reentrant.svg?versionPrefix=3)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-reentrant/3.0.0) |
+| lock-provider-hazelcast-4x | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-hazelcast-4x.svg?versionPrefix=3)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-hazelcast-4x/3.0.0) |
+| lock-provider-hazelcast-5x | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-hazelcast-5x.svg?versionPrefix=3)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-hazelcast-5x/3.0.0) |
+| lock-provider-redis        | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-redis.svg?versionPrefix=3)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-redis/3.0.0) |
+| lock-provider-zookeeper    | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-zookeeper.svg?versionPrefix=3)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-zookeeper/3.0.0) |
+| -                          | -                                                                                                                                                                                                                        |
+| lock-provider-api          | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-api.svg?versionPrefix=2)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-api/2.0.0) |
+| lock-provider-reentrant    | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-reentrant.svg?versionPrefix=2)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-reentrant/2.0.0) |
+| lock-provider-hazelcast-3x | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-hazelcast-3x.svg?versionPrefix=2)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-hazelcast-3x/2.0.0) |
+| lock-provider-hazelcast-4x | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-hazelcast-4x.svg?versionPrefix=2)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-hazelcast-4x/2.0.0) |
+| lock-provider-hazelcast-5x | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-hazelcast-5x.svg?versionPrefix=2)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-hazelcast-5x/2.0.0) |
+| lock-provider-redis        | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-redis.svg?versionPrefix=2)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-redis/2.0.0) |
+| lock-provider-zookeeper    | [![Maven Central](https://img.shields.io/maven-central/v/com.inomera.telco.commons/lock-provider-zookeeper.svg?versionPrefix=2)](https://central.sonatype.com/artifact/com.inomera.telco.commons/lock-provider-zookeeper/2.0.0) |
 
 # Usage
 
+## With Gradle
+
+JDK 23 Support
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-reentrant:4.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:4.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-redis:4.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-zookeeper:4.0.0'
+```
+
+JDK 17 Support
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-reentrant:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-redis:3.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-zookeeper:3.0.0'
+```
+
+JDK 8 Support
+
+```groovy
+implementation 'com.inomera.telco.commons:lock-provider-reentrant:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-3x:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-redis:2.0.0'
+implementation 'com.inomera.telco.commons:lock-provider-zookeeper:2.0.0'
+```
+
+
 ## With Maven
----
+
 JDK 23 Support
 
 ```xml
+
 <dependency>
   <groupId>com.inomera.telco.commons</groupId>
   <artifactId>lock-provider-reentrant</artifactId>
@@ -68,12 +101,13 @@ JDK 23 Support
   <artifactId>lock-provider-zookeeper</artifactId>
   <version>4.0.0</version>
 </dependency>
+
 ```
 
----
 JDK 17 Support
 
 ```xml
+
 <dependency>
   <groupId>com.inomera.telco.commons</groupId>
   <artifactId>lock-provider-reentrant</artifactId>
@@ -103,12 +137,13 @@ JDK 17 Support
   <artifactId>lock-provider-zookeeper</artifactId>
   <version>3.0.0</version>
 </dependency>
+
 ```
----
 
 JDK 8 Support
 
 ```xml
+
 <dependency>
   <groupId>com.inomera.telco.commons</groupId>
   <artifactId>lock-provider-reentrant</artifactId>
@@ -144,38 +179,7 @@ JDK 8 Support
   <artifactId>lock-provider-zookeeper</artifactId>
   <version>2.0.0</version>
 </dependency>
-```
 
-## With Gradle
-
-JDK 23 Support
-
-```groovy
-implementation 'com.inomera.telco.commons:lock-provider-reentrant:4.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:4.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-redis:4.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-zookeeper:4.0.0'
-```
-
-JDK 17 Support
-
-```groovy
-implementation 'com.inomera.telco.commons:lock-provider-reentrant:3.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:3.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:3.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-redis:3.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-zookeeper:3.0.0'
-```
-
-JDK 8 Support
-
-```groovy
-implementation 'com.inomera.telco.commons:lock-provider-reentrant:2.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-3x:2.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:2.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-hazelcast-5x:2.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-redis:2.0.0'
-implementation 'com.inomera.telco.commons:lock-provider-zookeeper:2.0.0'
 ```
 
 ## Create an Instance
@@ -196,7 +200,6 @@ import com.inomera.telco.commons.lock.hazelcast.HazelcastLockProvider;
 final LockProvider lockProvider = new HazelcastLockProvider(hazelcastInstance);
 ```
 
-
 ### With Hazelcast 4.x.x
 
 #### Dependency
@@ -204,7 +207,6 @@ final LockProvider lockProvider = new HazelcastLockProvider(hazelcastInstance);
 ```groovy
 implementation 'com.inomera.telco.commons:lock-provider-hazelcast-4x:2.0.0'
 ```
-
 
 ### With Hazelcast 5.x.x
 
@@ -222,7 +224,6 @@ import com.inomera.telco.commons.lock.hazelcast.HazelcastLockProvider;
 final LockProvider lockProvider = new HazelcastLockProvider(hazelcastInstance);
 ```
 
-
 ### With Redis
 
 #### Dependency
@@ -239,7 +240,6 @@ import com.inomera.telco.commons.lock.redis.RedisLockProvider;
 final LockProvider lockProvider = new RedisLockProvider(redissonClient);
 ```
 
-
 ### With Zookeeper
 
 #### Dependency
@@ -255,7 +255,6 @@ import com.inomera.telco.commons.lock.zookeeper.ZookeeperLockProvider;
 
 final LockProvider lockProvider = new ZookeeperLockProvider(curatorClient);
 ```
-
 
 ### Non-distributed Lock Provider
 
@@ -280,14 +279,14 @@ final LockProvider lockProvider = new LocalReentrantLockProvider();
 Returns empty optional if lock is not acquired.
 
 ```java
-final Optional<Locked> maybeLocked = lockProvider.tryLock("lockKey");
+final Optional maybeLocked = lockProvider.tryLock("lockKey");
 maybeLocked.ifPresent(locked -> {
-        try {
+    try {
         // Do things in lock
-        } finally {
+    } finally {
         locked.unlock();
-  }
-          });
+    }
+});
 ```
 
 ### Custom Lock Map - Manual Unlock
@@ -295,30 +294,30 @@ maybeLocked.ifPresent(locked -> {
 Returns empty optional if lock is not acquired.
 
 ```java
-final Optional<Locked> maybeLocked = lockProvider.tryLock("lockMapName", "lockKey");
+final Optional maybeLocked = lockProvider.tryLock("lockMapName", "lockKey");
 maybeLocked.ifPresent(locked -> {
-        try {
+    try {
         // Do things in lock
-        } finally {
+    } finally {
         locked.unlock();
-  }
-          });
+    }
+});
 ```
 
 ### Default Lock Map - Auto Unlock
 
 ```java
 lockProvider.executeInTryLock("lockKey", () -> {
-        // Do stuff in lock
-        });
+    // Do stuff in lock
+});
 ```
 
 ### Custom Lock Map - Auto Unlock
 
 ```java
 lockProvider.executeInTryLock("lockMapName", "lockKey", () -> {
-        // Do stuff in lock
-        });
+    // Do stuff in lock
+});
 ```
 
 ### Default Lock Map - Auto Unlock - Return Value
@@ -350,9 +349,9 @@ final String result = lockProvider.executeInTryLock("lockMapName", "lockKey", ()
 ```java
 final Locked locked = lockProvider.lock("lockKey");
 try {
-        // Do stuff in lock
-        } finally {
-        locked.unlock();
+    // Do stuff in lock
+} finally {
+    locked.unlock();
 }
 ```
 
@@ -361,9 +360,9 @@ try {
 ```java
 final Locked locked = lockProvider.lock("lockMapName", "lockKey");
 try {
-        // Do stuff in lock
-        } finally {
-        locked.unlock();
+    // Do stuff in lock
+} finally {
+    locked.unlock();
 }
 ```
 
@@ -371,16 +370,16 @@ try {
 
 ```java
 lockProvider.executeInLock("lockKey", () -> {
-        // Do stuff in lock
-        });
+    // Do stuff in lock
+});
 ```
 
 ### Custom Lock Map - Auto Unlock
 
 ```java
 lockProvider.executeInLock("lockMapName", "lockKey", () -> {
-        // Do stuff in lock
-        });
+    // Do stuff in lock
+});
 ```
 
 ### Default Lock Map - Auto Unlock - Return Value
